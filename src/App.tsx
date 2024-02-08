@@ -1,5 +1,11 @@
+import { Searchbox } from './components'
+
 function App() {
-  return <h1 className="text-red-500">Hello world</h1>
+  return (
+    <div className="grid place-items-center text-xl bg-neutral-800 w-full h-screen">
+      <Searchbox />
+    </div>
+  )
 }
 
 export default App
