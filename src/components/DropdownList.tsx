@@ -11,7 +11,7 @@ export const DropdownList = ({ items, handleItemClick }: Props) => {
       {items.map((item) => (
         <li
           key={item.id}
-          onClick={() => handleItemClick(item)}
+          onMouseDown={() => handleItemClick(item)}
           className="py-2 px-3 capitalize rounded-lg cursor-pointer hover:bg-neutral-800"
         >
           {item.value}
