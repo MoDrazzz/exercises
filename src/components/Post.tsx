@@ -1,3 +1,4 @@
+import { PostVotes } from '.'
 import { PostType } from '../types'
 
 type Props = {
@@ -16,11 +17,7 @@ export const Post = ({ postData }: Props) => {
       <p>{postData.content}</p>
       <footer className="flex mt-1 justify-between text-neutral-600">
         <p>{stringDate}</p>
-        <p>
-          Votes:{' '}
-          <span className="text-green-500">+ {postData.votes.positive}</span>{' '}
-          <span className="text-red-500">- {postData.votes.negative}</span>
-        </p>
+        <PostVotes postData={postData} />
       </footer>
     </article>
   )
