@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Input } from '.'
+import { DropdownList, Input } from '.'
 
 type Props = {
   items: string[]
@@ -28,18 +28,7 @@ export const Searchbox = ({ items, placeholder }: Props) => {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
-      {isActive && (
-        <ul className="absolute top-full mt-1 bg-neutral-900 border-2 rounded-lg w-full max-h-40 overflow-auto p-1 border-neutral-400">
-          {filteredItems.map((item, index) => (
-            <li
-              key={index}
-              className="py-2 px-3 capitalize rounded-lg cursor-pointer hover:bg-neutral-800"
-            >
-              {item}
-            </li>
-          ))}
-        </ul>
-      )}
+      {isActive && <DropdownList items={filteredItems} handleItemClick={() => {}} />}
     </div>
   )
 }
