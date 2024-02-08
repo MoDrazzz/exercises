@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Searchbox } from './components'
 import { DropdownItem } from './types'
 
@@ -15,9 +16,16 @@ const colors: DropdownItem[] = [
 ]
 
 function App() {
+  const [selectedItem, setSelectedItem] = useState(colors[0])
+
   return (
     <div className="grid place-items-center text-xl bg-neutral-800 w-full h-screen">
-      <Searchbox items={colors} placeholder="Search..." />
+      <Searchbox
+        selectedItem={selectedItem}
+        setSelectedItem={setSelectedItem}
+        items={colors}
+        placeholder="Search..."
+      />
     </div>
   )
 }

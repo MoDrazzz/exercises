@@ -1,8 +1,9 @@
-import { ChangeEvent } from 'react'
+import { ChangeEvent, RefObject } from 'react'
 
 type Props = {
   value: string
   onChange: (e: ChangeEvent<HTMLInputElement>) => void
+  refObj?: RefObject<HTMLInputElement>
   placeholder?: string
   onFocus?: () => void
   onBlur?: () => void
@@ -11,12 +12,14 @@ type Props = {
 export const Input = ({
   placeholder,
   onFocus,
+  refObj,
   onBlur,
   value,
   onChange,
 }: Props) => {
   return (
     <input
+      ref={refObj}
       value={value}
       onChange={onChange}
       placeholder={placeholder}
