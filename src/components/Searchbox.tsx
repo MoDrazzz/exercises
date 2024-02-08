@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Input } from '.'
 
 type Props = {
   items: string[]
@@ -20,8 +21,7 @@ export const Searchbox = ({ items, placeholder }: Props) => {
 
   return (
     <div className="relative text-neutral-100">
-      <input
-        className="w-96 py-2 px-3 rounded-lg outline-none border-neutral-500 focus:border-neutral-400 transition-colors bg-neutral-900 border-2"
+      <Input
         placeholder={placeholder}
         onFocus={() => setIsActive(true)}
         onBlur={() => setIsActive(false)}
