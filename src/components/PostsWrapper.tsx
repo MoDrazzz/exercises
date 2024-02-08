@@ -18,6 +18,10 @@ export const PostsWrapper = () => {
     setPosts((prev) => prev.filter((post) => post.id !== id))
   }
 
+  const sortPosts = (posts: PostType[]) => {
+    return posts.sort((postA, postB) => (postA.date > postB.date ? -1 : 1))
+  }
+
   return (
     <div className="bg-neutral-50 text-neutral-950 w-[75vw] p-6 rounded-lg">
       <div className="flex items-center justify-between">
@@ -27,7 +31,7 @@ export const PostsWrapper = () => {
         <button onClick={() => setIsCreatePostModalVisible(true)}>➕</button>
       </div>
       <div className="overflow-auto max-h-[50vh]">
-        {posts.map((post) => (
+        {sortPosts(posts).map((post) => (
           <Post
             key={post.id}
             postData={post}
@@ -37,7 +41,10 @@ export const PostsWrapper = () => {
         ))}
       </div>
       {isCreatePostModalVisible && (
-        <CreatePostModal setPosts={setPosts} setIsVisible={setIsCreatePostModalVisible} />
+        <CreatePostModal
+          setPosts={setPosts}
+          setIsVisible={setIsCreatePostModalVisible}
+        />
       )}
     </div>
   )
