@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import { DropdownList, Input } from '.'
+import { DropdownItem } from '../types'
 
 type Props = {
-  items: string[]
+  items: DropdownItem[]
   placeholder: string
 }
 
@@ -13,7 +14,7 @@ export const Searchbox = ({ items, placeholder }: Props) => {
 
   useEffect(() => {
     const newFilteredItems = items.filter((item) =>
-      item.toLowerCase().startsWith(query.toLowerCase()),
+      item.value.toLowerCase().startsWith(query.toLowerCase()),
     )
 
     setFilteredItems(newFilteredItems)
@@ -28,7 +29,9 @@ export const Searchbox = ({ items, placeholder }: Props) => {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
-      {isActive && <DropdownList items={filteredItems} handleItemClick={() => {}} />}
+      {isActive && (
+        <DropdownList items={filteredItems} handleItemClick={() => {}} />
+      )}
     </div>
   )
 }
