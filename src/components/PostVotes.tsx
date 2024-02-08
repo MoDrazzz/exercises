@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { PostType, UpdatePostFunctionType } from '../types'
 
 type Props = {
@@ -6,7 +7,11 @@ type Props = {
 }
 
 export const PostVotes = ({ postData, updatePost }: Props) => {
+  const [hasVoted, setHasVoted] = useState(false)
+
   const handleVote = (type: keyof PostType['votes']) => {
+    if (hasVoted) return alert("You've voted on that post already.")
+
     updatePost({
       ...postData,
       votes: {
@@ -14,6 +19,7 @@ export const PostVotes = ({ postData, updatePost }: Props) => {
         [type]: postData.votes[type] + 1,
       },
     })
+    setHasVoted(true)
   }
 
   return (
