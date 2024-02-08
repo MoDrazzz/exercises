@@ -37,7 +37,7 @@ export const PostsWrapper = () => {
         ))}
       </div>
       {isCreatePostModalVisible && (
-        <CreatePostModal setIsVisible={setIsCreatePostModalVisible} />
+        <CreatePostModal setPosts={setPosts} setIsVisible={setIsCreatePostModalVisible} />
       )}
     </div>
   )
