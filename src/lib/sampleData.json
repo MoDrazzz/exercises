@@ -1,0 +1,34 @@
+{
+  "posts": [
+    {
+      "id": "2e1ef28a-184e-4d8c-95b8-b5ce749944a8",
+      "date": 1644391945823,
+      "title": "The Cutest Kittens You'll Ever See",
+      "content": "If you're a fan of adorable kittens, you're in for a treat! Check out these fluffy balls of fur as they play, nap, and explore their surroundings. From tiny meows to playful pounces, these kittens will melt your heart. Get ready to say 'aww'!",
+      "votes": {
+        "positive": 152,
+        "negative": 8
+      }
+    },
+    {
+      "id": "6e33b3fd-bc85-4bf0-bd31-c48f0a3c0967",
+      "date": 1644368945823,
+      "title": "Meet Muffin: The Sweetest Kitten in Town",
+      "content": "Allow me to introduce you to Muffin, the sweetest kitten you'll ever meet! With her fluffy orange fur and big green eyes, she's impossible to resist. Muffin loves cuddling, chasing laser pointers, and napping in sunbeams. Follow her adventures as she brings joy and happiness to everyone she meets!",
+      "votes": {
+        "positive": 98,
+        "negative": 2
+      }
+    },
+    {
+      "id": "9a4292d1-a335-4283-9885-18f40a1468bf",
+      "date": 1644381945823,
+      "title": "Tips for Taking Care of Your New Kitten",
+      "content": "Bringing home a new kitten is an exciting experience, but it also comes with responsibilities. To ensure your kitten grows up healthy and happy, follow these essential tips: Provide a nutritious diet, schedule regular vet check-ups, create a safe environment for exploration, and shower your kitten with love and attention. By following these guidelines, you'll establish a strong bond with your furry friend that will last a lifetime!",
+      "votes": {
+        "positive": 72,
+        "negative": 1
+      }
+    }
+  ]
+}
