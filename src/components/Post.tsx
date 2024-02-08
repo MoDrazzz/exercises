@@ -1,11 +1,12 @@
 import { PostVotes } from '.'
-import { PostType } from '../types'
+import { PostType, UpdatePostFunctionType } from '../types'
 
 type Props = {
   postData: PostType
+  updatePost: UpdatePostFunctionType
 }
 
-export const Post = ({ postData }: Props) => {
+export const Post = ({ postData, updatePost }: Props) => {
   const stringDate = new Date(postData.date).toLocaleString('en-gb', {
     dateStyle: 'long',
     timeStyle: 'short',
@@ -17,7 +18,7 @@ export const Post = ({ postData }: Props) => {
       <p>{postData.content}</p>
       <footer className="flex mt-1 justify-between text-neutral-600">
         <p>{stringDate}</p>
-        <PostVotes postData={postData} />
+        <PostVotes postData={postData} updatePost={updatePost} />
       </footer>
     </article>
   )

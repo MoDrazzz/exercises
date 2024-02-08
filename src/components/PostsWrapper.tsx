@@ -1,10 +1,16 @@
 import { useState } from 'react'
 import { sampleData } from '../lib'
-import { PostType } from '../types'
+import { PostType, UpdatePostFunctionType } from '../types'
 import { Post } from '.'
 
 export const PostsWrapper = () => {
-  const [posts] = useState<PostType[]>(sampleData.posts)
+  const [posts, setPosts] = useState<PostType[]>(sampleData.posts)
+
+  const updatePost: UpdatePostFunctionType = (newPost) => {
+    setPosts((prev) =>
+      prev.map((post) => (post.id === newPost.id ? newPost : post)),
+    )
+  }
 
   return (
     <div className="bg-neutral-50 text-neutral-950 w-[75vw] p-6 rounded-lg">
@@ -13,7 +19,7 @@ export const PostsWrapper = () => {
       </h2>
       <div className="overflow-auto max-h-[50vh]">
         {posts.map((post) => (
-          <Post key={post.id} postData={post} />
+          <Post key={post.id} postData={post} updatePost={updatePost} />
         ))}
       </div>
     </div>
