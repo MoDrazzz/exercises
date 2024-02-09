@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
 
+const KONAMI_SECRET_CODE = 'injects3crets'
+
 function App() {
-  const [, setWrittenKonami] = useState('')
+  const [writtenKonami, setWrittenKonami] = useState('')
 
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
@@ -12,6 +14,12 @@ function App() {
 
     return () => window.removeEventListener('keydown', handleKeyPress)
   }, [])
+
+  useEffect(() => {
+    if (writtenKonami === KONAMI_SECRET_CODE) {
+      console.log('Konami entered correctly.')
+    }
+  }, [writtenKonami])
 
   return (
     <div className="w-full h-screen bg-neutral-800 text-slate-50 flex justify-center items-center gap-10 flex-col">
