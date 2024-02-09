@@ -1,23 +1,34 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const KONAMI_SECRET_CODE = 'injects3crets'
+const KONAMI_AUTORESET_TIME = 5000
 
 function App() {
   const [writtenKonami, setWrittenKonami] = useState('')
+  const resetKonamiTimeout = useRef<NodeJS.Timeout>()
 
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         setWrittenKonami('')
+        clearTimeout(resetKonamiTimeout.current)
         return
       }
+
+      clearTimeout(resetKonamiTimeout.current)
+      resetKonamiTimeout.current = setTimeout(() => {
+        setWrittenKonami('')
+      }, KONAMI_AUTORESET_TIME)
 
       setWrittenKonami((prev) => (e.key.length > 1 ? prev : prev + e.key))
     }
 
     window.addEventListener('keydown', handleKeyPress)
 
-    return () => window.removeEventListener('keydown', handleKeyPress)
+    return () => {
+      window.removeEventListener('keydown', handleKeyPress)
+      clearTimeout(resetKonamiTimeout.current)
+    }
   }, [])
 
   useEffect(() => {
