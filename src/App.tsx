@@ -7,6 +7,11 @@ function App() {
 
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setWrittenKonami('')
+        return
+      }
+
       setWrittenKonami((prev) => (e.key.length > 1 ? prev : prev + e.key))
     }
 
