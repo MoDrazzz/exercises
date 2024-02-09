@@ -20,4 +20,12 @@ fs.readFile(fileToRead, 'utf8', (err, data) => {
   if (!word) return console.log('No word with provided hash found.');
 
   console.log(`Found a match!\nHash ${hash} is: ${word}`);
+
+  fs.writeFile('./result.txt', word, (err) => {
+    if (err) {
+      console.error(err);
+    }
+
+    console.log('The encrypted word has been written to result.txt file.');
+  });
 });
