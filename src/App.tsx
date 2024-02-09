@@ -2,10 +2,13 @@ import { useEffect, useRef, useState } from 'react'
 
 const KONAMI_SECRET_CODE = 'injects3crets'
 const KONAMI_AUTORESET_TIME = 5000
+const HIDE_CONTENT_TIME = 15000
 
 function App() {
   const [writtenKonami, setWrittenKonami] = useState('')
+  const [isKonamiEntered, setIsKonamiEntered] = useState(false)
   const resetKonamiTimeout = useRef<NodeJS.Timeout>()
+  const hideContentTimeout = useRef<NodeJS.Timeout>()
 
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
@@ -28,12 +31,19 @@ function App() {
     return () => {
       window.removeEventListener('keydown', handleKeyPress)
       clearTimeout(resetKonamiTimeout.current)
+      clearTimeout(hideContentTimeout.current)
     }
   }, [])
 
   useEffect(() => {
     if (writtenKonami === KONAMI_SECRET_CODE) {
-      console.log('Konami entered correctly.')
+      setWrittenKonami('')
+      setIsKonamiEntered(true)
+
+      clearTimeout(hideContentTimeout.current)
+      hideContentTimeout.current = setTimeout(() => {
+        setIsKonamiEntered(false)
+      }, HIDE_CONTENT_TIME)
     }
   }, [writtenKonami])
 
@@ -42,7 +52,11 @@ function App() {
       <header>
         <h1 className="text-3xl font-bold">Sweet Kittens!</h1>
       </header>
-      <img src="http://placekitten.com/200/300" alt="Sweet cat" />
+      {isKonamiEntered ? (
+        <h1>Secret Content</h1>
+      ) : (
+        <img src="http://placekitten.com/200/300" alt="Sweet cat" />
+      )}
     </div>
   )
 }
