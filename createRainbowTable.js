@@ -1,8 +1,12 @@
 const fs = require('node:fs');
-
 const md5 = require('js-md5');
+const { argv } = require('node:process');
 
-fs.readFile('word_list.txt', 'utf8', (err, data) => {
+const fileToRead = argv[2];
+
+if (!fileToRead) return console.error('No file specified.');
+
+fs.readFile(fileToRead, 'utf8', (err, data) => {
   if (err) {
     console.error(err);
     return;
