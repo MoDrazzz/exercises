@@ -1,5 +1,7 @@
 const fs = require('node:fs');
 
+const punctationMarksRegex = /[!\"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~«»—…]/g;
+
 fs.readFile('./Pan_Tadeusz.txt', 'utf8', (err, data) => {
   if (err) {
     console.error(err);
@@ -7,7 +9,8 @@ fs.readFile('./Pan_Tadeusz.txt', 'utf8', (err, data) => {
   }
 
   const lines = data.split('\n');
-  const words = lines.map((line) => line.split(' ')).flat();
+  const words = lines.map((line) => line.replaceAll(punctationMarksRegex, '').split(' ')).flat();
+
   const uniqueWords = [...new Set(words)];
 
   fs.writeFile('./Unique_Words.txt', uniqueWords.join('\n'), (err) => {
