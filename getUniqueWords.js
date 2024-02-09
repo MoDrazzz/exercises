@@ -13,7 +13,7 @@ fs.readFile('./Pan_Tadeusz.txt', 'utf8', (err, data) => {
 
   const uniqueWords = [...new Set(words)];
 
-  fs.writeFile('./Unique_Words.txt', uniqueWords.join('\n'), (err) => {
+  fs.writeFile('./word_list.txt', uniqueWords.join('\n'), (err) => {
     if (err) {
       console.error(err);
     }
