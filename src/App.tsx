@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { SecretContent } from './components'
 
 const KONAMI_SECRET_CODE = 'injects3crets'
 const KONAMI_AUTORESET_TIME = 5000
@@ -68,6 +69,7 @@ function App() {
         <>
           <h1>Secret Content</h1>
           <p>Time remaining: {remainingTime}s</p>
+          <SecretContent />
         </>
       ) : (
         <img src="http://placekitten.com/200/300" alt="Sweet cat" />
