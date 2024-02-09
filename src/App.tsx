@@ -67,8 +67,7 @@ function App() {
       </header>
       {isKonamiEntered ? (
         <>
-          <h1>Secret Content</h1>
-          <p>Time remaining: {remainingTime}s</p>
+          <h2 className="text-2xl">Time remaining: {remainingTime}s</h2>
           <SecretContent />
         </>
       ) : (
