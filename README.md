@@ -1,30 +1,19 @@
-# React + TypeScript + Vite
+# 3. Searchbox
+Create a simple searchbox for a example list of 10 colors names.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## TODO:
+1. Create an input to allow user to type a search query
+2. Display a list of colors.
+3. Display the most accurate color in the page title of the browser's tab
+4. Add a button to clear the searchbox
+5. After clicking a search result color change the color of it to green.
 
-Currently, two official plugins are available:
+## Done checking here?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```bash
+git switch inline-editing
+git switch konami-code
+git switch microblog
+git switch rainbow-table
+git switch searchbox
 ```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
